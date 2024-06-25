@@ -1,7 +1,7 @@
 
 .. toctree::
    :maxdepth: 3
-   :caption: keyestudio docs
+   :caption: KD3025 Kidsbits STEM
 
    README.md
    docs/index

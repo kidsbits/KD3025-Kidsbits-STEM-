@@ -181,7 +181,7 @@ Enter **Disk D** and open folder **Code**, find **3.Code_kidspico** and you will
 
 ![1507](media/1507.png) ![1508](media/1508.png) ![1509](media/1509.png)
 
-Connect to kidspico and choose COM port. 
+Connect to kidspico to the computer via USB cable and choose COM port. 
 
 ![1513](media/1513.png)
 
@@ -211,27 +211,59 @@ Click ![1407](media/1407.png) to run the code, and the yellow LED on kidspico bo
 
 ![1504](media/1504.gif)
 
+Click ![1413](media/1413.png) or press Ctrl+C to exit online running.
+
 ---
 
 #### Test Offline Running
+
+**Method ①**: Offline run an already written program
+
+Ensure the software is not "online". Click ![1413](media/1413.png) or press Ctrl+C to exit online running.
 
 Open **Onboard_LED.py** in Files: File --> Save as... 
 
 Click ![1404](media/1404.png) to create a new script, copy and paste Onboard_LED.py in it.
 
-![1505](media/1505.png)
+![1514](media/1514.png)
 
-Click ![1406](media/1406.png) to save it to Raspberry Pi Pico.
+Choose Raspberry Pi Pico.
 
-![1510](media/1510.png)
+![1515](media/1515.png)
 
 We name it as **main.py**.
 
 ![1511](media/1511.png)
 
-After saving, the main.py code will automatically execute as long as the kidspico board is powered on. You will see the yellow LED flashes per second. 
+Unplug the USB cable connecting kidspico and computer. 
 
-![1512](media/1512.png)
+The main.py code will automatically execute as long as the kidspico board is powered on. You will see the yellow LED flashes per second. 
+
+![1516](media/1516.png)
+
+![line4](media/line4.png)
+
+**Method ②**: Offline run a new program.
+
+Connect the kidspico to the computer via USB cable.
+
+![1517](media/1517.png)
+
+Click ![1404](media/1404.png) to create a new script and paste the code of Onboard_LED.py on it.
+
+![1505](media/1505.png)
+
+Click ![1406](media/1406.png) to save in Raspberry Pi Pico.
+
+![1510](media/1510.png)
+
+Name it as main.py.
+
+![1511](media/1511.png)
+
+The main.py code will automatically execute as long as the kidspico board is powered on. You will see the yellow LED flashes per second. 
+
+![1516](media/1516.png)
 
 ---
 
@@ -736,7 +768,7 @@ Loop: Read the power level input by the sensor and print it on the Shell. If it 
 
 ![4top](media/4top.png)
 
-After uploading code, when the PIR motion sensor detects a human motion, it outputs high and the red LED goes off. The Shell prints *Some body is in this area!* ;
+After uploading code, when the PIR motion sensor detects **a human motion**, it outputs high and the red LED goes off. The Shell prints *Some body is in this area!* ;
 
 ![3302](media/3302.png)
 
@@ -927,14 +959,16 @@ while True:
 
 ![line2](media/line2.png)
 
-2. `buzzer = PWM(Pin(3))` 
+2. `trumpet = PWM(Pin(2))` 
 
-   Connect the power amplifier to pin io3, output PWM.
+   Connect the power amplifier to pin io2, output PWM.
 
 ![line2](media/line2.png)
 
 3. `a = [523,587,659,698,784,880,988]`
 
+   In Python, [] includes a list, elements in which are separated by commas.
+   
    Create a list **a** and put elements in [ ], including 523, 587, 659, 698,7 84, 880, 988, which are correspond to frequency of C, D, E, F, G, A, B.
 
 ![line2](media/line2.png)
@@ -942,8 +976,8 @@ while True:
 4. ```python
    #Tone when the duty cycle is 1000
    for i in a:
-   	buzzer.duty_u16(1000)
-       buzzer.freq(i)
+   	trumpet.duty_u16(1000)
+       trumpet.freq(i)
        time.sleep(0.2)
    ```
 
@@ -1119,16 +1153,16 @@ while True:
 
 ![5top](media/5top.png)
 
-1. `from neopixel import NeoPixel`
+1. `from neopixel`
 
-   import neopixel to call its functions
+   import neopixel to call its functions.
    
    ![peg](media/peg.png)
    
      **neopixel.NeoPixel**
    
    ```python
-   neopixel.NeoPixel(pin, n,)
+   neopixel.NeoPixel(pin, n)
    ```
    
    pin : connected pin
@@ -1153,9 +1187,7 @@ while True:
            [0,0,0]]                             #off
    ```
 
-   **[Brightness of red,Brightness of green,Brightness of blue]**: proportion of color brightness. The final color is the mixed one. For instance, mix red and blue and purple will be developed. Brightness range: 0 ~ 255. 
-
-   color is a list, elements(separated by commas) in which are [brightness,0,0], [0,brightness,0], [0,0,brightness], [brightness,brightness,brightness], [0,0,0], corresponding to red, green, blue, white and off. All of their brightness are 5.
+   *colors* is a list, elements(separated by commas) in which are [brightness,0,0], [0,brightness,0], [0,0,brightness], [brightness,brightness,brightness], [0,0,0], corresponding to red, green, blue, white and off. 
 
 ![line2](media/line2.png)
 
@@ -1297,7 +1329,7 @@ Click ![1413](media/1413.png) or Ctrl+C to exit the execution.
 
 This thin film sensor is an analog input module. The previous modules we learned are all digital ones, so what is the difference between these two types? 
 
-The digital modules can only input/output high or low (3.3V or 0V), while the analog ones can output any voltage value read by ADC analog ports within the range.
+The digital modules can only input/output high or low (3.3V or 0V), while the analog ones can output/input any voltage value read by ADC analog ports within the range of 0~5V.
 
 ![3601](media/3601.png)
 
@@ -1387,7 +1419,7 @@ ADC(Analog to Digital Converter) converts analog values to digital ones. The ADC
 
 3. General ADC input voltage calculation:
 
-   <font face="courier New" color="black" size=6>$ Vin= \frac {AVDD_{ADC}}{2^{Resolution Bit}-1}*ReadData$</font> 
+   <font face="courier New" color="black" size=6>$Vin= \frac {AVDD_{ADC}}{2^{Resolution Bit}-1}*ReadData$</font> 
 
    $AVDD_{ADC}$: Reference voltage
 
@@ -1650,13 +1682,20 @@ while True:
    
    ⑥ `time.sleep(1)`  delays 1s. The heart will show for 1s on each direction. 
    
-   Read the corresponding ADC value and print on Shell. The results refresh every 0.1s.
 
 ![5bottom](media/5bottom.png)
 
 #### Test Result
 
 ![4top](media/4top.png)
+
+<span style="color: rgb(10, 10, 200);">Wire up first before uploading code. Or error may occur.</span>
+
+![3706](media/3706.png)
+
+<span style="color: rgb(10, 10, 200);">After the code is uploaded, if the module does not make a response, please press the reset button on the kidspico board.</span>
+
+![3703](media/3703.png)
 
 After uploading code, the dot matrix will show a heart in four directions with each maintaining for 1s. 
 
@@ -1825,7 +1864,7 @@ Geomagnetic field refers to the natural magnetic field that exists inside the Ea
 
 The geomagnetic field is a vector that, for a fixed location, can be divided into two components parallel to the local horizontal plane and one component perpendicular to the local horizontal plane. If the electronic compass is kept parallel to the horizontal plane, the three axes of the compass correspond to these three components.
 
-For the two parallel components, their vector sum always points to magnetic north. **Course Angle (Azimuth)** in the compass is the Angle between the current direction and magnetic north. Since the compass remains horizontal, it is possible to calculate <span style="color: rgb(10, 10, 200);">**Course Angle**</span> through the values of the two axes(usually X and Y). When the compass rotates horizontally, **the Course Angle varies between 0° and 360° **.
+For the two parallel components, their vector sum always points to magnetic north. **Course Angle (Azimuth)** in the compass is the Angle between the current direction and magnetic north. Since the compass remains horizontal, it is possible to calculate <span style="color: rgb(10, 10, 200);">**Course Angle**</span> through the values of the two axes(usually X and Y). When the compass rotates horizontally, **the Course Angle varies between 0° and 360°**.
 
 To sum up, three-axis magnetic sensor is widely applied to navigation and positioning systems, attitude control and motion detection, environmental monitoring and safety applications, as well as medical devices. With continuous progress and innovation, its applications will expand, bringing more convenience and possibilities to all walks of life.
 
@@ -1973,7 +2012,7 @@ Width: 2 LEGO holes 8x2 = 16 mm
 
 Height: 3 LEGO height units 3.2x3 = 9.6 mm
 
-Basic hole size: diameter of 4.8
+Basic hole size: diameter of 4.8mm
 
 Interface: 3pin interface spacing 2.54 mm
 
@@ -2120,17 +2159,6 @@ while True:
    
    Define a function angle to calculate the corresponding **value** in  `PWM.duty_u16(value)` . During using, set x to a needed angle, ranging from -45 ~ 225.
    
-   **Supplement:**
-   
-   270° servo pulse width:
-   
-   -45°：600us（0.6ms）
-   
-   90°：1500us（1.5ms）
-   
-   180°：2400us（2.4ms）
-   
-   A 20ms or so pulse is required to control the servo. The high level of the pulse is within 0.6ms ~ 2.4ms, corresponding to the starting and ending position of the servo rotation. 
 
 ![line2](media/line2.png)
 
@@ -2358,11 +2386,11 @@ Then, when the RFID module receives a correct IC card code, it drives the servo 
 
    On the basis of Chapter 3.8 and 3.10, we add an initialization code  `servo.duty_u16(angle(0))` for servo to ensure the door is closed before running code.
 
-   Define UID code. The code of each card is unique, so please replace the UID in code with yours.
+   Define UID code. The code of each card is unique, so please <span style="color: rgb(10, 10, 200);">replace the UID in code with yours.</span>
 
 2. Loop.
 
-   Determine whether the UID is correct. If yes, servo opens the door. If not, close the door.
+   Determine whether the UID is correct. If yes, servo opens the door. If not, close the door. 
    
 
 ![5bottom](media/5bottom.png)

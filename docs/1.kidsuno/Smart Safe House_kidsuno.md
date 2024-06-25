@@ -669,7 +669,7 @@ Click ![Baud1](media/Baud1.png) and set Buadrate to 9600.
 
 ![Baud2](media/Baud2.png)
 
-After uploading code, when the PIR motion sensor detects a human motion, it outputs high and the red LED goes off. Monitor prints *Some body is in this area!* ;
+After uploading code, when the PIR motion sensor detects **a human motion**, it outputs high and the red LED goes off. Monitor prints *Some body is in this area!* ;
 
 ![3305](media/3305.png)
 
@@ -1113,7 +1113,7 @@ After uploading code, the four pixels repeatedly light up in red, green, white a
 
 This thin film sensor is an analog input module. The previous modules we learned are all digital ones, so what is the difference between these two types? 
 
-The digital modules can only input/output high or low (3.3V or 0V), while the analog ones can output any voltage value read by ADC analog ports within the range.
+The digital modules can only input/output high or low (5V or 0V), while the analog ones can output/input any voltage value read by ADC analog ports within the range.
 
 ![3601](media/3601.png)
 
@@ -1177,7 +1177,7 @@ Interface: telephone socket
 
 ![3top](media/3top.png)
 
-The thin film on the sensor detects the pressure value. It converts the detected pressure value into voltage. As the pressure increases, the resistance and the output voltage gradually decreases (3.3V ~ 0). This voltage value is a continuous analog value ranging from 3.3V ~ 0.
+The thin film on the sensor detects the pressure value. It converts the detected pressure value into voltage. As the pressure increases, the resistance and the output voltage gradually decreases (5V ~ 0). This voltage value is a continuous analog value ranging from 5V ~ 0.
 
 <span style="color: rgb(10, 10, 200);">The main board is not able to process analog signals directly, so we need to convert them into digital ones. Therefore, ADC(Analog to Digital Converter) is required.</span>
 
@@ -1191,25 +1191,19 @@ ADC(Analog to Digital Converter) converts analog values to digital ones. The ADC
 
 **kidsuno ADC Parameters**
 
-1. Reference voltage: 3.3V
+1. Reference voltage: 5V
 
-2. Resolution: 12bit
+2. Resolution: 10bit
 
    A n-bit ADC means this ADC contains 2ⁿ scales. 
 
-   12-bit ADC contains $2^{12}=4096$ scales, and it outputs totally 4096 digital values (including from 0～ 4095), each scale is $\frac{3.3}{4095}≈0.00081(V)$.
+   10-bit ADC contains $2^{10}=1024$ scales, and it outputs totally 1024 digital values (including from 0～ 1023), each scale is $\frac{5}{1023}≈0.00489(V)$.
 
 3. General ADC input voltage calculation:
 
-   <font face="courier New" color="black" size=6>$ Vin= \frac {AVDD_{ADC}}{2^{Resolution Bit}-1}*ReadData$</font> 
+   <font face="courier New" color="black" size=6>$Vin= \frac {AVDD_{ADC}}{2^{Resolution Bit}-1}*ReadData$</font> 
 
    $AVDD_{ADC}$: Reference voltage
-
-4. ADC channel: 5 channels
-
-   ADC0 - ADC3 are GPIO26 - 29, among which ADC0, ADC1, ADC2 are available to commonly measure the analog voltage, while ADC3 detects on-board VSYS voltage.
-
-   Since ADC4 is built-in, it cannot be used at the pin. It measures on-board temperature sensor.
 
 ![line3](media/line3.png)
 
@@ -1527,6 +1521,12 @@ Add library first. Click ![add](media/add.png) to load library **Matrix 8*8 IIC*
 
 ![4top](media/4top.png)
 
+<span style="color: rgb(10, 10, 200);">Wire up first before uploading code.</span>
+
+<span style="color: rgb(10, 10, 200);">After the code is uploaded, if the module does not make a response, please press the reset button on the kidsuno board.</span>
+
+![3712](media/3712.png)
+
 After uploading code, the dot matrix will show the set icons.
 
 ![3711](media/3711.gif)
@@ -1705,7 +1705,7 @@ Geomagnetic field refers to the natural magnetic field that exists inside the Ea
 
 The geomagnetic field is a vector that, for a fixed location, can be divided into two components parallel to the local horizontal plane and one component perpendicular to the local horizontal plane. If the electronic compass is kept parallel to the horizontal plane, the three axes of the compass correspond to these three components.
 
-For the two parallel components, their vector sum always points to magnetic north. **Course Angle (Azimuth)** in the compass is the Angle between the current direction and magnetic north. Since the compass remains horizontal, it is possible to calculate <span style="color: rgb(10, 10, 200);">**Course Angle**</span> through the values of the two axes(usually X and Y). When the compass rotates horizontally, **the Course Angle varies between 0° and 360° **.
+For the two parallel components, their vector sum always points to magnetic north. **Course Angle (Azimuth)** in the compass is the Angle between the current direction and magnetic north. Since the compass remains horizontal, it is possible to calculate <span style="color: rgb(10, 10, 200);">**Course Angle**</span> through the values of the two axes(usually X and Y). When the compass rotates horizontally, **the Course Angle varies between 0° and 360°**.
 
 To sum up, three-axis magnetic sensor is widely applied to navigation and positioning systems, attitude control and motion detection, environmental monitoring and safety applications, as well as medical devices. With continuous progress and innovation, its applications will expand, bringing more convenience and possibilities to all walks of life.
 
@@ -1866,7 +1866,7 @@ Width: 2 LEGO holes 8x2 = 16 mm
 
 Height: 3 LEGO height units 3.2x3 = 9.6 mm
 
-Basic hole size: diameter of 4.8
+Basic hole size: diameter of 4.8mm
 
 Interface: 3pin interface spacing 2.54 mm
 
@@ -2119,6 +2119,8 @@ Open KidsBlock and connect the board to your computer. Click **File --> Load fro
 
 Choose D:\Code\1.Code_kidsuno to open **4.1Card-scanning access control machine.sb3** file.
 
+<span style="color: rgb(10, 10, 200);">Replace the ID card value in the code into yours.</span>
+
 ![4103](media/4103.png)
 
 Click ![Unconnected](media/Unconnected.png)to connect to port and then  ![2210](media/2210.png).
@@ -2144,6 +2146,8 @@ Then, when the RFID module receives a correct IC card code, it drives the servo 
 2. Loop: 
 
    Determine whether the IC card code is correct. If yes, servo opens the door. If not, close the door.
+   
+   <span style="color: rgb(10, 10, 200);">Replace the ID card value in the code into yours.</span>
    
    ![4105](media/4105.png)
 
