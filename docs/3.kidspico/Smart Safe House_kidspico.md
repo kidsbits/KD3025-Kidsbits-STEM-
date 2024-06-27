@@ -223,8 +223,6 @@ Ensure the software is not "online". Click ![1413](media/1413.png) or press Ctrl
 
 Open **Onboard_LED.py** in Files: File --> Save as... 
 
-Click ![1404](media/1404.png) to create a new script, copy and paste Onboard_LED.py in it.
-
 ![1514](media/1514.png)
 
 Choose Raspberry Pi Pico.
@@ -879,6 +877,10 @@ Pulse width is the high level in a complete square wave cycle. So, pulse width m
   ![3404](media/3404.png)
 
 ![line3](media/line3.png)
+
+On the 8002b power amplifier module, a potentiometer is designed to adjust the sound volume. Rotate it clockwise to turn the volume up.
+
+![3418](media/3418.png)
 
 Modules with blue housing are digital ones, so we should connect to digital io pins of the mainboard (ports with blue).
 
@@ -2405,6 +2407,20 @@ After uploading code, scan the correct IC card, and the door will open for 3s an
 
 ![4bottom](media/4bottom.png)
 
+#### FAQ
+
+![10top](media/10top.png)
+
+**Q: No response after uploading code?**
+
+A: Please check whether the IC card value is yours.
+
+**Q: After the sensor detects the card, the servo rotates yet the door does not open?**
+
+A: Power off immediately! Reassemble the building blocks according to the tutorial, noting that the servo needs to be calibrated before installation. Re-power on after the assembly is completed.
+
+![10bottom](media/10bottom.png)
+
 ---
 
 ### 4.2 Invasion Alarm
@@ -2549,6 +2565,22 @@ After uploading code, when the sensor detects a human motion (an invasion), the 
 ![4206](media/4206.gif)
 
 ![4bottom](media/4bottom.png)
+
+#### FAQ
+
+![10top](media/10top.png)
+
+**Q: After uploading code, the LED and amplifier are no response when you put your palm in front of the sensor?**
+
+A: The PIR motion sensor detects only **movement** rather than objects.
+
+**Q: After uploading code, the LED lights up but the amplifier does not emit sound?**
+
+A: Rotate clockwise the potentiometer on the amplifier to turn up the sound volume.
+
+![3418](media/3418.png)
+
+![10bottom](media/10bottom.png)
 
 ---
 
@@ -2728,6 +2760,16 @@ After uploading code, press the thin film with your finger, and you will see the
 
 ![4bottom](media/4bottom.png)
 
+#### FAQ
+
+![10top](media/10top.png)
+
+**Q: After uploading the code, nothing shows on the matrix when the thin film is pressed?**
+
+A: ① The pressure value may be not reach the threshold, so please set a smaller one. ② Try again after pressing the reset button.
+
+![10bottom](media/10bottom.png)
+
 ---
 
 ### 4.4 Motion Alarm
@@ -2885,5 +2927,15 @@ After uploading code, place the device and maintain the Course Angle within 0° 
 ![4409](media/4409.gif)
 
 ![4bottom](media/4bottom.png)
+
+#### FAQ
+
+![10top](media/10top.png)
+
+**Q: After uploading the code, the amplifier alarms no matter how we move the device?**
+
+A: You may scale up the standard range according to needs.
+
+![10bottom](media/10bottom.png)
 
 ---

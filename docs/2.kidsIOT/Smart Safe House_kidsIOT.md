@@ -2112,7 +2112,7 @@ Open KidsBlock and connect the board to your computer. Click **File --> Load fro
 
 Choose D:\Code\2.Code_kidsIOT to open **4.1Card-scanning access control machine.sb3** file.
 
-<span style="color: rgb(10, 10, 200);">Please replace the ID card value in the code into yours.</span>
+<span style="color: rgb(10, 10, 200);">Please replace the IC card value in the code into yours.</span>
 
 ![4103](media/4103.png)
 
@@ -2155,6 +2155,20 @@ After uploading code, scan the correct IC card, and the door will open for 3s an
 ![4106](media/4106.gif)
 
 ![4bottom](media/4bottom.png)
+
+#### FAQ
+
+![10top](media/10top.png)
+
+**Q: No response after uploading code?**
+
+A: Please check whether the IC card value is yours.
+
+**Q: After the sensor detects the card, the servo rotates yet the door does not open?**
+
+A: Power off immediately! Reassemble the building blocks according to the tutorial, noting that the servo needs to be calibrated before installation. Re-power on after the assembly is completed.
+
+![10bottom](media/10bottom.png)
 
 ---
 
@@ -2280,6 +2294,22 @@ After uploading code, when the sensor detects a human motion (an invasion), the 
 ![4206](media/4206.gif)
 
 ![4bottom](media/4bottom.png)
+
+#### FAQ
+
+![10top](media/10top.png)
+
+**Q: After uploading code, the LED and amplifier are no response when you put your palm in front of the sensor?**
+
+A: The PIR motion sensor detects only **movement** rather than objects.
+
+**Q: After uploading code, the LED lights up but the amplifier does not emit sound?**
+
+A: Rotate clockwise the potentiometer on the amplifier to turn up the sound volume.
+
+![3418](media/3418.png)
+
+![10bottom](media/10bottom.png)
 
 ---
 
@@ -2424,6 +2454,16 @@ After uploading code, press the thin film with your finger, and you will see the
 ![4303](media/4303.gif)
 
 ![4bottom](media/4bottom.png)
+
+#### FAQ
+
+![10top](media/10top.png)
+
+**Q: After uploading the code, nothing shows on the matrix when the thin film is pressed?**
+
+A: ① The pressure value may be not reach the threshold, so please set a smaller one. ② Try again after pressing the reset button.
+
+![10bottom](media/10bottom.png)
 
 ---
 
@@ -2589,5 +2629,15 @@ After uploading code, place the device and maintain the Course Angle within 0° 
 ![4409](media/4409.gif)
 
 ![4bottom](media/4bottom.png)
+
+#### FAQ
+
+![10top](media/10top.png)
+
+**Q: After uploading the code, the amplifier alarms no matter how we move the device?**
+
+A: You may scale up the standard range according to needs.
+
+![10bottom](media/10bottom.png)
 
 ---
