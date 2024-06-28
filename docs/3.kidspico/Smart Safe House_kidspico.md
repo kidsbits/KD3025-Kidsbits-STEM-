@@ -229,7 +229,7 @@ Choose Raspberry Pi Pico.
 
 ![1515](media/1515.png)
 
-We name it as **main.py**.
+We name it as **main.py** (The name must be main.py, otherwise the code will fail to execute).
 
 ![1511](media/1511.png)
 
@@ -255,7 +255,7 @@ Click ![1406](media/1406.png) to save in Raspberry Pi Pico.
 
 ![1510](media/1510.png)
 
-Name it as main.py.
+We name it as **main.py** (The name must be main.py, otherwise the code will fail to execute).
 
 ![1511](media/1511.png)
 
