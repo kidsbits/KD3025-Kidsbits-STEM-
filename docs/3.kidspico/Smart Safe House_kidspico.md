@@ -229,7 +229,7 @@ Choose Raspberry Pi Pico.
 
 ![1515](media/1515.png)
 
-We name it as **main.py** (The name must be main.py, otherwise the code will fail to execute).
+We name it as <span style="color: rgb(10, 10, 200);">**main.py**</span> (The name must be main.py, otherwise the code will fail to execute).
 
 ![1511](media/1511.png)
 
@@ -247,7 +247,9 @@ Connect the kidspico to the computer via USB cable.
 
 ![1517](media/1517.png)
 
-Click ![1404](media/1404.png) to create a new script and paste the code of Onboard_LED.py on it.
+Double-click to open **Onboard_LED.py** in the Files area.
+
+Copy and paste **Onboard_LED.py** on <untitled\> (Click ![1404](media/1404.png) to create an <untitled\> if there is not).
 
 ![1505](media/1505.png)
 
@@ -255,7 +257,7 @@ Click ![1406](media/1406.png) to save in Raspberry Pi Pico.
 
 ![1510](media/1510.png)
 
-We name it as **main.py** (The name must be main.py, otherwise the code will fail to execute).
+We name it as <span style="color: rgb(10, 10, 200);">**main.py**</span> (The name must be main.py, otherwise the code will fail to execute).
 
 ![1511](media/1511.png)
 
